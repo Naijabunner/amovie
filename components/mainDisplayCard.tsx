@@ -53,7 +53,7 @@ const MainDisplayCard:FC<CardProps> = ({
             height={336}
             className='bg-primary  h-full w-full object-center opacity-85 duration-[0.8s] hover:scale-[1.1] transition-all ease-in-out'
           />}
-          <div className=' details  transition-all ease-in-out translate-y-[10%] hover:translate-y-0 duration-[0.9s]  px-3 space-y-3 py-2 min-h-[50%] text-white absolute bottom-0 min-w-full bg-opacity-80 bg-[#21242D]'>
+          <div className=' details  transition-all ease-in-out translate-y-[10%] hover:translate-y-0 duration-[0.5s]  px-3 space-y-3 py-2 min-h-[50%] text-white absolute bottom-0 min-w-full bg-opacity-80 bg-[#21242D]'>
             <p className='title text-sm sm:text-base md:text-lg  text-primary font-semibold'>{cardData.title}</p>
             <div className=" text-xs  justify-between flex items-center">
                        <p className='ratings'>{cardData.vote_average.toFixed(1)}</p>

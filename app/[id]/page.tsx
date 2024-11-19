@@ -1,3 +1,6 @@
+import { constants } from '@/constants/env'
+import { Heart, Play } from 'lucide-react'
+import Image from 'next/image'
 import { stringify } from 'querystring'
 import React from 'react'
 
@@ -90,8 +93,60 @@ const page = async({ params }:{ params:{id:string| number}}) => {
     console.log(params)
     const { id }=  params
   return (
-    <div>{id}</div>
-  )
+    <section className=' max-lg:mx-3'>
+      <div className='imageCard bg-slate-700 relative max-h-[500px] overflow-hidden rounded-lg max-w-[1100px] mx-auto'>
+        <Image
+          src={
+            //   `${constants.imageUrl}${data.backdrop_path}`
+            "https://image.tmdb.org/t/p/original/8mjYwWT50GkRrrRdyHzJorfEfcl.jpg"
+            // "https://image.tmdb.org/t/p/original/wTnV3PCVW5O92JMrFvvrRcV39RU.jpg"
+          }
+          alt={data.title}
+          width={400}
+          height={400}
+          quality={100}
+          unoptimized
+          className=' w-full aspect-video'
+          placeholder='blur'
+          blurDataURL='https://image.tmdb.org/t/p/w45/8mjYwWT50GkRrrRdyHzJorfEfcl.jpg'
+          // className='bg-primary  h-full w-full object-center opacity-85 duration-[0.8s] hover:scale-[1.1] transition-all ease-in-out'
+        />
+        <div className='bg-gradient-to-b from-transparent via-transparent  to-primary absolute z-10 top-0 h-full w-full' />
+
+        <div className='cta absolute  z-20 bottom-10 w-full justify-center items-center flex  gap-x-4'>
+          <button className=' bg-[#21242D] flex h-10  w-20 justify-center items-center gap-x-2 rounded-md shadow-lg font-medium cursor-not-allowed'>
+            <Play />
+            Play
+          </button>
+          <button className=' bg-[#21242D] flex h-10  w-14 justify-center items-center gap-x-2 rounded-md shadow-lg font-medium cursor-not-allowed'>
+            <Heart/>
+          </button>
+
+        </div>
+
+      </div>
+
+
+
+      <div className="details grid md:grid-cols-3 gap-6 min-h-72 max-w-[1100px] mx-auto">
+        <div className=" md:col-span-2  bg-[#21242D] rounded-lg">
+ <h3>
+    Description
+ </h3>
+ <p>
+    {data.overview}
+ </p>
+        </div>
+        <div className=" md:row-span-2  bg-[#21242D] rounded-lg"></div>
+        <div className=" md:col-span-2 bg-[#21242D] rounded-lg">
+            <h3>
+                production_companies
+            </h3>
+
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default page
